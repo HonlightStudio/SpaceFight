@@ -5,16 +5,20 @@ using UnityEngine.Pool;
 public class BulletPool : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public int bulletPoolSize;
     public float bulletSpeed;
     private List<GameObject> bulletPool;
+    
+    public float lifetime = 2f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bulletPool = new List<GameObject>();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < bulletPoolSize; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
+            bullet.transform.SetParent(transform);
             bullet.SetActive(false);
             bulletPool.Add(bullet);
         }
@@ -32,20 +36,6 @@ public class BulletPool : MonoBehaviour
         }
         return null;
     }
-    public float lifetime = 2f;
-
-    void OnEnable()
-    {
-        Invoke("Disable", lifetime);
-    }
-
-    void Disable()
-    {
-        gameObject.SetActive(false);
-    }
-
-    void OnDisable()
-    {
-        CancelInvoke();
-    }
+    
+    
 }
