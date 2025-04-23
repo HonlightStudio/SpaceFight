@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 35111987a2d3a1543ac25ffe1f5b6d7a
+guid: 8a94317a6222cc045ae9c72e66a79a95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8586417740124189794
-    second: 49_0
+      213: 8301767592022329292
+    second: pixel_space_monsters_arcade_video_games_robots_retro_game_invaders_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 49_0
+      name: pixel_space_monsters_arcade_video_games_robots_retro_game_invaders_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 231
-        height: 132
+        x: 23
+        y: 27
+        width: 200
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9b09c2ee8ae6d880800000000000000
-      internalID: -8586417740124189794
+      spriteID: cc7475ae3adc53370800000000000000
+      internalID: 8301767592022329292
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      49_0: -8586417740124189794
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
