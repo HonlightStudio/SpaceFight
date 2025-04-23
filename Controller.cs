@@ -38,6 +38,8 @@ public class Controller : MonoBehaviour
             Mathf.SmoothStep(rb.linearVelocityY, movement.y * Speed, smooth));
         if (Input.GetKey(KeyCode.Space) && timer > (1 / fireRate))
         {
+            gun1.gameObject.SetActive(true);
+            gun2.gameObject.SetActive(true);
             timer = 0;
             Bullet2 = bulletPool.GetBullet();
             Bullet1 = bulletPool.GetBullet();
@@ -60,6 +62,11 @@ public class Controller : MonoBehaviour
                 rb2d2.AddForce(gun2.up * BulletSpeed, ForceMode2D.Impulse);
                 
             }
+        }
+        else
+        {
+            gun1.gameObject.SetActive(false);
+            gun2.gameObject.SetActive(false);
         }
 
         if (rb.position.y > cam.ScreenToWorldPoint(TopRight.position).y && rb.linearVelocityY > 0)
