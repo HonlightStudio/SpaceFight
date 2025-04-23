@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour
             if (Bullet2 != null && Bullet1 != null)
             {
                 Bullet2.transform.position = gun1.position;
-                Bullet2.transform.rotation = gun1.rotation;
+    
                 Rigidbody2D rb2d = Bullet2.GetComponent<Rigidbody2D>();
                 rb2d.linearVelocity = Vector2.zero;
                 rb2d.AddForce(gun1.up * BulletSpeed, ForceMode2D.Impulse);
@@ -56,7 +56,7 @@ public class Controller : MonoBehaviour
                 
                 
                 Bullet1.transform.position = gun2.position;
-                Bullet1.transform.rotation = gun2.rotation;
+
                 Rigidbody2D rb2d2 = Bullet1.GetComponent<Rigidbody2D>();
                 rb2d2.linearVelocity = Vector2.zero;
                 rb2d2.AddForce(gun2.up * BulletSpeed, ForceMode2D.Impulse);
