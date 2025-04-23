@@ -9,14 +9,16 @@ public class Controller : MonoBehaviour
     [SerializeField] float smooth;
     [SerializeField] private RectTransform TopRight;
     [SerializeField] private RectTransform BottomLeft;
-    [SerializeField] private Transform gun;
+    [SerializeField] private Transform gun1;
+    [SerializeField] private Transform gun2;
     [SerializeField] private float fireRate;
     [SerializeField] public BulletPool bulletPool;
     [SerializeField] private float BulletSpeed;
 
 
     private Camera cam;
-    private GameObject Bullet;
+    private GameObject Bullet1;
+    private GameObject Bullet2;
     private float timer;
 
 
@@ -37,15 +39,26 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && timer > (1 / fireRate))
         {
             timer = 0;
-            Bullet = bulletPool.GetBullet();
-            Debug.Log(Bullet);
-            if (Bullet != null)
+            Bullet2 = bulletPool.GetBullet();
+            Bullet1 = bulletPool.GetBullet();
+            Debug.Log(Bullet2);
+            if (Bullet2 != null && Bullet1 != null)
             {
-                Bullet.transform.position = gun.position;
-                Bullet.transform.rotation = gun.rotation;
-                Rigidbody2D rb2d = Bullet.GetComponent<Rigidbody2D>();
+                Bullet2.transform.position = gun1.position;
+                Bullet2.transform.rotation = gun1.rotation;
+                Rigidbody2D rb2d = Bullet2.GetComponent<Rigidbody2D>();
                 rb2d.linearVelocity = Vector2.zero;
-                rb2d.AddForce(gun.up * BulletSpeed, ForceMode2D.Impulse);
+                rb2d.AddForce(gun1.up * BulletSpeed, ForceMode2D.Impulse);
+                
+                
+                
+                
+                Bullet1.transform.position = gun2.position;
+                Bullet1.transform.rotation = gun2.rotation;
+                Rigidbody2D rb2d2 = Bullet1.GetComponent<Rigidbody2D>();
+                rb2d2.linearVelocity = Vector2.zero;
+                rb2d2.AddForce(gun2.up * BulletSpeed, ForceMode2D.Impulse);
+                
             }
         }
 
