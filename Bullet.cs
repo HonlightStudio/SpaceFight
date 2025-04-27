@@ -26,6 +26,10 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             
         }
-        
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        gameObject.SetActive(false);
     }
 }
