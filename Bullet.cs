@@ -8,10 +8,7 @@ public class Bullet : MonoBehaviour
     private float lifeTime;
     public float damage;
     private float timer;
-    void Start()
-    {
-        lifeTime = GameObject.Find("Pool").GetComponent<BulletPool>().lifetime;
-    }
+
 
 
     public void setLifeTime(float time)
