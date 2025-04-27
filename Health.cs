@@ -7,10 +7,12 @@ public class Health : MonoBehaviour
     [SerializeField] float MaxHealth = 100f;
     [SerializeField] float CurrentHealth = 100f;
     [SerializeField] GameObject Explosive;
-
+    
+    
+    private bool isAlive = true;
     public void Start()
     {
-        Explosive.SetActive(false);
+
     }
 
     public float GetMaxHealth()
@@ -47,8 +49,13 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-        gameObject.SetActive(false);
-        Explosive.transform.position = transform.position;
-        Explosive.SetActive(true);
+        if (isAlive)
+        {
+            GameObject Boom = Instantiate(Explosive, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+            Boom.SetActive(true);
+            isAlive = false;
+        }
+        
     }
 }
