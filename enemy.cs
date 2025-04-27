@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class enemy : MonoBehaviour
 {
+    [SerializeField]
     BulletPool pool;
     public float speed = 5f;
     public float damage = 10f;
@@ -18,7 +19,6 @@ public class enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        pool = GameObject.Find("Pool").GetComponent<BulletPool>();
         shootTimer = FIreRate;
     }
 
