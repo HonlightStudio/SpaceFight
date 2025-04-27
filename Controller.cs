@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] public BulletPool bulletPool;
     [SerializeField] private float BulletSpeed;
-
+    [SerializeField] private float BulletLifeTime;
 
     private Camera cam;
     private GameObject Bullet1;
@@ -56,7 +56,8 @@ public class Controller : MonoBehaviour
                 
                 
                 Bullet1.transform.position = gun2.position;
-
+                Bullet1.GetComponent<Bullet>().setLifeTime(BulletLifeTime);
+                Bullet2.GetComponent<Bullet>().setLifeTime(BulletLifeTime);
                 Rigidbody2D rb2d2 = Bullet1.GetComponent<Rigidbody2D>();
                 rb2d2.linearVelocity = Vector2.zero;
                 rb2d2.AddForce(gun2.up * BulletSpeed, ForceMode2D.Impulse);

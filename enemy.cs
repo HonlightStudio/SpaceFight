@@ -14,6 +14,7 @@ public class enemy : MonoBehaviour
 
     private GameObject player;
     public GameObject gun1;
+    public float bulletLifeTime = 3f;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class enemy : MonoBehaviour
         bullet.transform.position = gun1.transform.position;
         bullet.transform.right = player.transform.position - transform.position;
         bullet.SetActive(true);
-
+        bullet.GetComponent<Bullet>().setLifeTime(lifeTime);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.linearVelocity = (player.transform.position - gun1.transform.position).normalized * speed;
     }
