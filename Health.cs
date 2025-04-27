@@ -1,14 +1,17 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] float MaxHealth = 100f;
     [SerializeField] float CurrentHealth = 100f;
+    [SerializeField] GameObject Explosive;
 
-
-
-
+    public void Start()
+    {
+        Explosive.SetActive(false);
+    }
 
     public float GetMaxHealth()
     {
@@ -40,5 +43,12 @@ public class Health : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().damage);
         }
+    }
+
+    public void Death()
+    {
+        gameObject.SetActive(false);
+        Explosive.transform.position = transform.position;
+        Explosive.SetActive(true);
     }
 }

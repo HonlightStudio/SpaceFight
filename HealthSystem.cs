@@ -22,17 +22,15 @@ public class HealthSystem : MonoBehaviour
         HealthBar1_off.SetActive(false);
         HealthBar2_off.SetActive(false);
         HealthBar3_off.SetActive(false);
-        HealthBar4_off.SetActive(false);
+        HealthBar4_off.SetActive(false); 
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(healthBar.GetCurrentHealth());
         if (healthBar.GetCurrentHealth() < healthBar.GetMaxHealth() * .75)
         {
             HealthBar4.SetActive(false);
-            HealthBar4_off.SetActive(true);
-            Debug.Log("Health Bar 4");
+            HealthBar4_off.SetActive(true); 
         }
 
         if (healthBar.GetCurrentHealth() < healthBar.GetMaxHealth() * .50)
@@ -49,8 +47,9 @@ public class HealthSystem : MonoBehaviour
 
         if (healthBar.GetCurrentHealth() <= 0)
         {
-            HealthBar3.SetActive(false);
-            HealthBar3_off.SetActive(true);
+            HealthBar1.SetActive(false);
+            HealthBar1_off.SetActive(true);
+            healthBar.Death();
         }
     }
 }
