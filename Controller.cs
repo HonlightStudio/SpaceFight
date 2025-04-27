@@ -51,13 +51,12 @@ public class Controller : MonoBehaviour
                 Rigidbody2D rb2d = Bullet2.GetComponent<Rigidbody2D>();
                 rb2d.linearVelocity = Vector2.zero;
                 rb2d.AddForce(gun1.up * BulletSpeed, ForceMode2D.Impulse);
-                
-                
-                
-                
                 Bullet1.transform.position = gun2.position;
                 Bullet1.GetComponent<Bullet>().setLifeTime(BulletLifeTime);
                 Bullet2.GetComponent<Bullet>().setLifeTime(BulletLifeTime);
+
+                Bullet2.transform.right = Vector2.up;
+                Bullet1.transform.right = Vector2.up;
                 Rigidbody2D rb2d2 = Bullet1.GetComponent<Rigidbody2D>();
                 rb2d2.linearVelocity = Vector2.zero;
                 rb2d2.AddForce(gun2.up * BulletSpeed, ForceMode2D.Impulse);
