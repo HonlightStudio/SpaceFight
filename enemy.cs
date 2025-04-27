@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class enemy : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class enemy : MonoBehaviour
     public float speed = 5f;
     public float damage = 10f;
     public float lifeTime = 5f;
-    public float shootInterval = 1f;
+    public float FIreRate = 1f;
     private float shootTimer;
 
     private GameObject player;
@@ -19,14 +20,14 @@ public class enemy : MonoBehaviour
         Destroy(gameObject, lifeTime);
         player = GameObject.FindGameObjectWithTag("Player");
         pool = GameObject.Find("Pool").GetComponent<BulletPool>();
-        shootTimer = shootInterval;
+        shootTimer = FIreRate;
     }
 
     void FixedUpdate()
     {
         shootTimer += Time.fixedDeltaTime;
 
-        if (shootTimer >= shootInterval)
+        if (shootTimer >= 1/FIreRate)
         {
             Shoot();
             shootTimer = 0f;
@@ -39,7 +40,7 @@ public class enemy : MonoBehaviour
         if (bullet == null) return;
 
         bullet.transform.position = gun1.transform.position;
-        bullet.transform.rotation = Quaternion.identity;
+        bullet.transform.right = player.transform.position - transform.position;
         bullet.SetActive(true);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
+    
+    
     private float lifeTime;
     public float damage;
     private float timer;
@@ -10,6 +13,12 @@ public class Bullet : MonoBehaviour
         lifeTime = GameObject.Find("Pool").GetComponent<BulletPool>().lifetime;
     }
 
+
+    public void setLifeTime(float time)
+    {
+        lifeTime = time;
+    }
+    
     // Update is called once per frame
     void Update()
     {
