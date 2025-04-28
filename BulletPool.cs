@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -36,6 +37,4 @@ public class BulletPool : MonoBehaviour
         }
         return null;
     }
-    
-    
 }

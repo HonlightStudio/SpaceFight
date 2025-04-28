@@ -6,12 +6,14 @@
      [SerializeField] float health = 10f;
      [SerializeField]
      Bullet bullet;
-
+     bool isAlive = true;
+     [SerializeField]
+     GameObject deathEffect;
      public void FixedUpdate()
      {
          if (health <= 0)
          {
-             
+             Death();
              Destroy(gameObject);
          }
      }
@@ -20,6 +22,16 @@
      {
          if (other.gameObject.name.Contains("Bullet_Player")){
          health -= other.gameObject.GetComponent<Bullet>().damage;
+         }
+     }
+
+     private void Death()
+     {
+         if (isAlive)
+         {
+             isAlive = false;
+             GameObject Smoke= Instantiate(deathEffect, transform.position, Quaternion.identity);
+             Smoke.SetActive(true);
          }
      }
  }

@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   bullet: {fileID: -4820548461081305459, guid: ad2573f8e94bc60428b64a19fc80d3ca, type: 3}
+  deathEffect: {fileID: 8131655815881418035, guid: b35b79b0d000c0a4dacc9174bb2c9449, type: 3}
 --- !u!68 &3499005108414174089
 EdgeCollider2D:
   m_ObjectHideFlags: 0
