@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
             Instantiate(healanim, transform.position, Quaternion.identity).transform.SetParent(transform);
             Destroy(other.gameObject);
         }
+        
         else
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().damage);
