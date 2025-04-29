@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
         {
             return;
         }
+        
         else
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().damage);
