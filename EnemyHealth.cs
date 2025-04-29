@@ -14,7 +14,6 @@
          if (health <= 0)
          {
              Death();
-             Destroy(gameObject);
          }
      }
 
@@ -25,13 +24,14 @@
          }
      }
 
-     private void Death()
+     public void Death()
      {
          if (isAlive)
          {
              isAlive = false;
              GameObject Smoke= Instantiate(deathEffect, transform.position, Quaternion.identity);
              Smoke.SetActive(true);
+             Destroy(gameObject);
          }
      }
  }

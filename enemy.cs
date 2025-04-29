@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class enemy : MonoBehaviour
         pool=GameObject.Find("Pool").GetComponent<BulletPool>();
         Physics2D.IgnoreLayerCollision(3,6,true);
     }
+    
 
     void FixedUpdate()
     {

@@ -15,7 +15,8 @@ public class Health : MonoBehaviour
     private GameObject heal;
     [SerializeField] private GameObject healanim;
     [SerializeField] private float healDuration = 100f;
-    [SerializeField] private float healAmount = 20f;
+    [SerializeField] private float healAmount = 10f;
+    [SerializeField] private float damage= 30f;
     public void Start()
     {
     }
@@ -34,16 +35,31 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
     }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.name);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         
+        
+        
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log(other.gameObject.name);
+            other.gameObject.GetComponent<EnemyHealth>().Death();
+            CurrentHealth=Mathf.Max(CurrentHealth-damage,0);
+        }
         if (other.gameObject.CompareTag("Heal"))
         {
             CurrentHealth = Mathf.Min(CurrentHealth+healAmount, MaxHealth);
             Instantiate(healanim, transform.position, Quaternion.identity).transform.SetParent(transform);
             Destroy(other.gameObject);
         }
-        
         else
         {
             TakeDamage(other.gameObject.GetComponent<Bullet>().damage);
@@ -78,7 +94,7 @@ public class Health : MonoBehaviour
         if (timer >=healDuration)
         {
              heal=MakeHeal();
-             Debug.Log("heal");
+
             timer = 0;
         }
 

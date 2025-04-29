@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 4554264788849960112}
   - component: {fileID: 4405168761271253893}
   - component: {fileID: 4325472671989311855}
-  - component: {fileID: 9004122574929897870}
+  - component: {fileID: 1311617376298354558}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -861,8 +861,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 901946621
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 8437535771895941464, guid: d0b492d2bf7def344b8298590c905bd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -897,6 +897,7 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   BulletSpeed: 10
   BulletLifeTime: 1
+  spriteRenderer: {fileID: 0}
 --- !u!50 &4554264788849960112
 Rigidbody2D:
   serializedVersion: 5
@@ -939,6 +940,12 @@ MonoBehaviour:
   MaxHealth: 100
   CurrentHealth: 100
   Explosive: {fileID: 2005346155614237151, guid: 3d1d3b35095177644aa49e59e28f3806, type: 3}
+  HealthPickup: {fileID: 0}
+  TopRight: {fileID: 0}
+  BottomLeft: {fileID: 0}
+  healanim: {fileID: 0}
+  healDuration: 100
+  healAmount: 10
 --- !u!114 &4325472671989311855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,8 +967,8 @@ MonoBehaviour:
   HealthBar4: {fileID: 0}
   HealthBar4_off: {fileID: 0}
   healthBar: {fileID: 4405168761271253893}
---- !u!68 &9004122574929897870
-EdgeCollider2D:
+--- !u!60 &1311617376298354558
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -995,35 +1002,55 @@ EdgeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.05, y: 1.52}
+    newSize: {x: 2.05, y: 1.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -0.63905513, y: -0.049729228}
-  - {x: -0.62937766, y: 0.037816167}
-  - {x: -0.5899347, y: 0.20395696}
-  - {x: -0.58252525, y: 0.5706123}
-  - {x: -0.28954113, y: 0.5942222}
-  - {x: -0.18523663, y: 0.7196622}
-  - {x: 0.014747903, y: 0.71898085}
-  - {x: 0.119448096, y: 0.59971416}
-  - {x: 0.40997097, y: 0.60118335}
-  - {x: 0.4017824, y: 0.16339481}
-  - {x: 0.46424818, y: 0.1423409}
-  - {x: 0.45515054, y: -0.066767216}
-  - {x: 0.77829003, y: -0.384485}
-  - {x: 0.76997095, y: -0.6392921}
-  - {x: 0.53981507, y: -0.66716015}
-  - {x: 0.5098487, y: -0.76777065}
-  - {x: -0.6876558, y: -0.7537316}
-  - {x: -0.73140794, y: -0.66195476}
-  - {x: -0.87631655, y: -0.6469184}
-  - {x: -0.95673555, y: -0.554824}
-  - {x: -0.9547963, y: -0.3712046}
-  - {x: -0.63748187, y: -0.060552835}
-  - {x: -0.6305107, y: -0.04064083}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+    m_Paths:
+    - - {x: -0.005, y: -0.53999996}
+      - {x: 0.044999998, y: -0.59999996}
+      - {x: 0.21499999, y: -0.59}
+      - {x: 0.205, y: -0.69}
+      - {x: 0.265, y: -0.74}
+      - {x: 0.48499998, y: -0.74}
+      - {x: 0.53499997, y: -0.69}
+      - {x: 0.685, y: -0.63}
+      - {x: 0.745, y: -0.57}
+      - {x: 0.745, y: -0.39}
+      - {x: 0.48499998, y: -0.13}
+      - {x: 0.445, y: -0.099999994}
+      - {x: 0.42499998, y: 0.14}
+      - {x: 0.405, y: 0.32999998}
+      - {x: 0.415, y: 0.65}
+      - {x: 0.315, y: 0.76}
+      - {x: 0.225, y: 0.76}
+      - {x: 0.185, y: 0.71}
+      - {x: 0.16499999, y: 0.51}
+      - {x: -0.024999999, y: 0.71}
+      - {x: -0.145, y: 0.69}
+      - {x: -0.235, y: 0.62}
+      - {x: -0.325, y: 0.53}
+      - {x: -0.355, y: 0.39999998}
+      - {x: -0.355, y: 0.69}
+      - {x: -0.405, y: 0.76}
+      - {x: -0.49499997, y: 0.76}
+      - {x: -0.565, y: 0.68}
+      - {x: -0.645, y: -0.089999996}
+      - {x: -0.92499995, y: -0.39999998}
+      - {x: -0.92499995, y: -0.58}
+      - {x: -0.875, y: -0.63}
+      - {x: -0.685, y: -0.74}
+      - {x: -0.435, y: -0.74}
+      - {x: -0.39499998, y: -0.69}
+      - {x: -0.345, y: -0.59999996}
+      - {x: -0.225, y: -0.59999996}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5538617944921653523
 GameObject:
   m_ObjectHideFlags: 0
