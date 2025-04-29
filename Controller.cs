@@ -15,7 +15,9 @@ public class Controller : MonoBehaviour
     [SerializeField] public BulletPool bulletPool;
     [SerializeField] private float BulletSpeed;
     [SerializeField] private float BulletLifeTime;
-
+    
+    
+    private AudioSource audio;
     private Camera cam;
     private GameObject Bullet1;
     private GameObject Bullet2;
@@ -27,6 +29,7 @@ public class Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,8 +49,13 @@ public class Controller : MonoBehaviour
             Debug.Log(Bullet2);
             if (Bullet2 != null && Bullet1 != null)
             {
+                
+                audio.enabled = true;
+                audio.volume = Random.Range(0.5f, 1f);
+                
+                audio.panStereo = Mathf.Clamp(transform.position.x - cam.ScreenToWorldPoint((TopRight.position + BottomLeft.position)/2 ).x, -1, 1);
+                
                 Bullet2.transform.position = gun1.position;
-    
                 Rigidbody2D rb2d = Bullet2.GetComponent<Rigidbody2D>();
                 rb2d.linearVelocity = Vector2.zero;
                 rb2d.AddForce(gun1.up * BulletSpeed, ForceMode2D.Impulse);
@@ -65,6 +73,11 @@ public class Controller : MonoBehaviour
         }
         else
         {
+            if (!Input.GetKey(KeyCode.Space))
+            {
+                audio.enabled = false;
+            }
+            
             gun1.gameObject.SetActive(false);
             gun2.gameObject.SetActive(false);
         }
@@ -88,5 +101,8 @@ public class Controller : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
         }
+        
+        
+        
     }
 }
