@@ -21,6 +21,7 @@ public class enemy : MonoBehaviour
         player = GameObject.Find("Player");
         shootTimer = FIreRate;
         pool=GameObject.Find("Pool").GetComponent<BulletPool>();
+        Physics2D.IgnoreLayerCollision(3,6,true);
     }
 
     void FixedUpdate()

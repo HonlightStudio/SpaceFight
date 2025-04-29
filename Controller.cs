@@ -15,7 +15,7 @@ public class Controller : MonoBehaviour
     [SerializeField] public BulletPool bulletPool;
     [SerializeField] private float BulletSpeed;
     [SerializeField] private float BulletLifeTime;
-    
+    [SerializeField] private SpriteRenderer spriteRenderer;
     
     private AudioSource audio;
     private Camera cam;
@@ -36,6 +36,9 @@ public class Controller : MonoBehaviour
     void FixedUpdate()
     {
         timer += Time.deltaTime;
+        
+        spriteRenderer.color = new Color(Mathf.SmoothStep(spriteRenderer.color.r,1,0.2f), 1, 1, 1);
+        
         Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         rb.linearVelocity = new Vector2(Mathf.SmoothStep(rb.linearVelocityX, movement.x * Speed, smooth),
             Mathf.SmoothStep(rb.linearVelocityY, movement.y * Speed, smooth));
@@ -51,8 +54,8 @@ public class Controller : MonoBehaviour
             {
                 
                 audio.enabled = true;
-                audio.volume = Random.Range(0.5f, 1f);
-                
+                audio.volume = Random.Range(0.5f, 0.75f);
+                audio.pitch = Random.Range(0.95f, 1.05f);
                 audio.panStereo = Mathf.Clamp(transform.position.x - cam.ScreenToWorldPoint((TopRight.position + BottomLeft.position)/2 ).x, -1, 1);
                 
                 Bullet2.transform.position = gun1.position;
@@ -104,5 +107,16 @@ public class Controller : MonoBehaviour
         
         
         
+    }
+    
+    
+    
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            spriteRenderer.color = Color.red;
+        }
     }
 }
