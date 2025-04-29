@@ -26,6 +26,11 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             
         }
+        Vector2 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.x > 1 || viewPos.x < 0 || viewPos.y < 0 || viewPos.y > 1)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
