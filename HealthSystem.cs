@@ -32,19 +32,31 @@ public class HealthSystem : MonoBehaviour
             HealthBar4.SetActive(false);
             HealthBar4_off.SetActive(true); 
         }
-
+        else if (healthBar.GetCurrentHealth() >= healthBar.GetMaxHealth() * .75)
+        {
+            HealthBar4.SetActive(true);
+            HealthBar4_off.SetActive(false);
+        }
         if (healthBar.GetCurrentHealth() < healthBar.GetMaxHealth() * .50)
         {
             HealthBar3.SetActive(false);
             HealthBar3_off.SetActive(true);
         }
-
+        else if (healthBar.GetCurrentHealth() >= healthBar.GetMaxHealth() * .50)
+        {
+            HealthBar3.SetActive(true);
+            HealthBar3_off.SetActive(false);
+        }
         if (healthBar.GetCurrentHealth() < healthBar.GetMaxHealth() * .25)
         {
             HealthBar2.SetActive(false);
             HealthBar2_off.SetActive(true);
         }
-
+        else if (healthBar.GetCurrentHealth() >= healthBar.GetMaxHealth() * .25)
+        {
+            HealthBar2.SetActive(true);
+            HealthBar2_off.SetActive(false);
+        }
         if (healthBar.GetCurrentHealth() <= 0)
         {
             HealthBar1.SetActive(false);
