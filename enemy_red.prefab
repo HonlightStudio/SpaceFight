@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6025143771340459329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.7740526, y: 2.9629602, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4798340513586985290}
@@ -108,8 +108,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2050950685
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1344780287051860636, guid: 5b3a0490f190e8f45a0cf5fc03569948, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516bae4812f57834290bdbf2ddf11654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 0}
+  sprite: {fileID: -6270953770400647376, guid: 77e5f9af13042184285b46da1182574e, type: 3}
   speed: 5
   damage: 10
   FIreRate: 1
@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  bullet: {fileID: -4820548461081305459, guid: ad2573f8e94bc60428b64a19fc80d3ca, type: 3}
   deathEffect: {fileID: 8131655815881418035, guid: b35b79b0d000c0a4dacc9174bb2c9449, type: 3}
 --- !u!68 &8820564618441056633
 EdgeCollider2D:

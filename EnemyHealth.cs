@@ -4,8 +4,8 @@
  public class EnemyHealth : MonoBehaviour
  {
      [SerializeField] float health = 10f;
-     [SerializeField]
-     Bullet bullet;
+     /*[SerializeField]
+     Bullet bullet;*/
      bool isAlive = true;
      [SerializeField]
      GameObject deathEffect;
