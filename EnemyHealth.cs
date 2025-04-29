@@ -1,6 +1,6 @@
  using System;
  using UnityEngine;
-
+ using TMPro;
  public class EnemyHealth : MonoBehaviour
  {
      [SerializeField] float health = 10f;
@@ -9,6 +9,7 @@
      bool isAlive = true;
      [SerializeField]
      GameObject deathEffect;
+     static int points = 0;
      public void FixedUpdate()
      {
          if (health <= 0)
@@ -32,6 +33,12 @@
              GameObject Smoke= Instantiate(deathEffect, transform.position, Quaternion.identity);
              Smoke.SetActive(true);
              Destroy(gameObject);
+             points++;
          }
+     }
+
+     public static int GetPoints()
+     {
+         return points;
      }
  }

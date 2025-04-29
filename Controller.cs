@@ -16,8 +16,6 @@ public class Controller : MonoBehaviour
     [SerializeField] private float BulletSpeed;
     [SerializeField] private float BulletLifeTime;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    
-    
     private AudioSource audio;
     private Camera cam;
     private GameObject Bullet1;

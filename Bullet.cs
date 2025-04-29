@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,8 +9,13 @@ public class Bullet : MonoBehaviour
     private float lifeTime;
     public float damage;
     private float timer;
+    private Health health;
 
 
+    private void Start()
+    {
+        health = GameObject.Find("Player").GetComponent<Health>();
+    }
 
     public void setLifeTime(float time)
     {
@@ -19,6 +25,10 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!health.isAlive)
+        {
+            gameObject.SetActive(false);
+        }
         timer += Time.deltaTime;
         if (timer >= lifeTime)
         {

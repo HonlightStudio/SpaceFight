@@ -17,12 +17,15 @@ public class enemy : MonoBehaviour
     public GameObject gun1;
     public float bulletLifeTime = 3f;
     private bool CanFire = false;
+    
+    ScoreSystem scoreSystem;
     void Start()
     {
         player = GameObject.Find("Player");
         shootTimer = FIreRate;
         pool=GameObject.Find("Pool").GetComponent<BulletPool>();
         Physics2D.IgnoreLayerCollision(3,6,true);
+        scoreSystem = GameObject.Find("Points").GetComponent<ScoreSystem>();
     }
     
 
@@ -61,5 +64,10 @@ public class enemy : MonoBehaviour
     public bool GetCanFire()
     {
         return CanFire;
+    }
+
+    private void OnDestroy()
+    {
+        scoreSystem.AddPoints(1);
     }
 }

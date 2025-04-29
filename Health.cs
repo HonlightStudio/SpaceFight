@@ -4,11 +4,11 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class Health : MonoBehaviour
 {
-    [SerializeField] float MaxHealth = 100f;
-    [SerializeField] float CurrentHealth = 100f;
+    [SerializeField] public float MaxHealth = 100f;
+    [SerializeField] public float CurrentHealth = 100f;
     [SerializeField] GameObject Explosive;
     [SerializeField] GameObject HealthPickup;
-    private bool isAlive = true;
+    public bool isAlive = true;
     private float timer;
     [SerializeField] private RectTransform TopRight;
     [SerializeField] private RectTransform BottomLeft;
@@ -77,7 +77,7 @@ public class Health : MonoBehaviour
         if (isAlive)
         {
             GameObject Boom = Instantiate(Explosive, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Boom.SetActive(true);
             isAlive = false;
             manager.EndGame();

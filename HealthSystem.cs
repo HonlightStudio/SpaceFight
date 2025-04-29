@@ -27,6 +27,17 @@ public class HealthSystem : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (healthBar.GetCurrentHealth() >= healthBar.GetMaxHealth() * .75)
+        {
+            HealthBar1.SetActive(true);
+            HealthBar2.SetActive(true);
+            HealthBar3.SetActive(true);
+            HealthBar4.SetActive(true);
+            HealthBar1_off.SetActive(false);
+            HealthBar2_off.SetActive(false);
+            HealthBar3_off.SetActive(false);
+            HealthBar4_off.SetActive(false); 
+        }
         if (healthBar.GetCurrentHealth() < healthBar.GetMaxHealth() * .75)
         {
             HealthBar4.SetActive(false);

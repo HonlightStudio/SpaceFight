@@ -223,4 +223,19 @@ public class EnemySystem : MonoBehaviour
 		return null;
 	}
 
+
+	public void KillAllEnemies()
+	{
+		for (int i = 0; i < gridSizeX; i++)
+		{
+			for (int j = 0; j < gridSizeY; j++)
+			{
+				if (Enemygrid[i, j] != null)
+				{
+					Enemygrid[i, j].GetComponent<EnemyHealth>().Death();
+				}
+			}
+		}
+	}
+	
 }
