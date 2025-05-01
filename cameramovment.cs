@@ -6,7 +6,6 @@ public class cameramovment : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D player;
-
     [SerializeField] private RectTransform TopRight;
     [SerializeField] private RectTransform BottomLeft;
     [SerializeField] private float speed;

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Health>().isAlive = true;
         player.transform.position = Vector3.zero;
         Time.timeScale = 1f;
+        scoreSystem.score = 0;
         particle1.SetActive(true);
         particle2.SetActive(true);
     }

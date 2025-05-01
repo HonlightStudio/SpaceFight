@@ -115,7 +115,7 @@ public class EnemySystem : MonoBehaviour
 			{
 
 
-				if (!(randomPosition.x + x > topRight.x || randomPosition.y - y < bottomLeft.y) )
+				if (!(randomPosition.x + x > topRight.x || randomPosition.y - y < bottomLeft.y))
 				{
 					grid[i, j] = new Vector2(randomPosition.x + x, randomPosition.y - y);
 					int randomIndex = Random.Range(0, enemys.Length);

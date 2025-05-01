@@ -1765,12 +1765,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265191208}
     - target: {fileID: 4405168761271253893, guid: 0e75940de3994c445abae4c75153f73a, type: 3}
+      propertyPath: healAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405168761271253893, guid: 0e75940de3994c445abae4c75153f73a, type: 3}
       propertyPath: HealthPickup
       value: 
       objectReference: {fileID: 199193243540606596, guid: aa4b928024b2a8948906eb1ceb528918, type: 3}
     - target: {fileID: 4405168761271253893, guid: 0e75940de3994c445abae4c75153f73a, type: 3}
       propertyPath: healDuration
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4675883786437319571, guid: 0e75940de3994c445abae4c75153f73a, type: 3}
       propertyPath: m_SortingLayer
